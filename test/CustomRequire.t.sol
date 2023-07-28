@@ -8,11 +8,11 @@ error TestError();
 
 contract CustomRequireTest is CustomRequire, Test {
     function test_WhenDoesntRevert() public {
-        _require(true, TestError.selector);
+        require(true, TestError.selector);
     }
 
     function testWhenReverts() public {
         vm.expectRevert(abi.encodeWithSelector(TestError.selector));
-        _require(false, TestError.selector);
+        require(false, TestError.selector);
     }
 }
